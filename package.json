@@ -1,0 +1,23 @@
+{
+  "name": "image-evidence-tool",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.4.21",
+    "exceljs": "^4.4.0",
+    "sortablejs": "^1.15.2",
+    "photoswipe": "^5.4.3",
+    "viewerjs": "^1.11.6",
+    "vite": "^5.1.6",
+    "@vitejs/plugin-vue": "^5.0.4"
+  },
+  "devDependencies": {
+    "sass": "^1.71.1"
+  }
+}
