@@ -76,7 +76,7 @@ const imageWidth = ref(300)
 const imageHeight = ref(200)
 const rowSpacing = ref(2)
 const leftColumns = ref(1)
-const topRows = ref(0)
+const topRows = ref(1)
 const showImageNumbers = ref(false)
 const sortOrder = ref('name-asc')
 
