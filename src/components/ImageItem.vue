@@ -1,7 +1,7 @@
 <template>
   <div class="image-item">
     <div class="image-number">{{ index + 1 }}</div>
-    <a 
+    <a
       href="#"
       class="image-wrapper"
       @click.prevent="$emit('click-image')"

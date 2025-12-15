@@ -18,6 +18,7 @@
           :value="imageWidth"
           @input="$emit('update:imageWidth', Number($event.target.value))"
           step="10"
+          min="10"
         >
         <span>px</span>
       </div>
@@ -30,6 +31,7 @@
           :value="imageHeight"
           @input="$emit('update:imageHeight', Number($event.target.value))"
           step="10"
+          min="10"
         >
         <span>px</span>
       </div>
@@ -42,6 +44,7 @@
           :value="rowSpacing"
           @input="$emit('update:rowSpacing', Number($event.target.value))"
           step="1"
+          min="0"
         >
         <span>行</span>
       </div>
@@ -54,6 +57,7 @@
           :value="leftColumns"
           @input="$emit('update:leftColumns', Number($event.target.value))"
           step="1"
+          min="0"
         >
         <span>列</span>
       </div>
@@ -65,6 +69,7 @@
           id="topRows"
           :value="topRows"
           @input="$emit('update:topRows', Number($event.target.value))"
+          :min="showImageNumbers ? 1 : 0"
           step="1"
         >
         <span>行</span>
