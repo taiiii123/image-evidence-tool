@@ -4,6 +4,7 @@
     <ThemeToggle @toggle="toggleTheme" :dark-mode="darkMode" />
 
     <TheHeader
+      ref="headerRef"
       v-model:image-width="imageWidth"
       v-model:image-height="imageHeight"
       v-model:row-spacing="rowSpacing"
@@ -29,12 +30,12 @@
             <span class="image-count-badge">📷 {{ currentTabImages.length }}枚</span>
           </div>
 
-          <div v-if="currentTabImages.length === 0" class="empty-state">
+          <div v-if="currentTabImages.length === 0" class="empty-state" @click="triggerFileInput">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
             <h3>エビデンス画像を追加してください</h3>
-            <p>「📁 画像を選択」ボタンから画像ファイルを選択できます</p>
+            <p>「📁 画像を選択」ボタンまたはここをクリックして画像ファイルを選択できます</p>
           </div>
 
           <ImageGrid
@@ -74,6 +75,9 @@ import PhotoSwipe from 'photoswipe'
 const { showToast } = useToast()
 const { darkMode, toggleTheme } = useTheme()
 const { exportToExcel: exportExcel } = useExcelExport()
+
+// ヘッダーコンポーネントへの参照
+const headerRef = ref(null)
 
 // タブデータ
 const tabs = ref([
@@ -306,6 +310,13 @@ const exportToExcel = async () => {
   } catch (error) {
     console.error('Excel出力エラー:', error)
     showToast('Excelファイルの作成に失敗しました。エラー: ' + error.message, 'error')
+  }
+}
+
+// ファイル入力をトリガー
+const triggerFileInput = () => {
+  if (headerRef.value?.fileInputRef) {
+    headerRef.value.fileInputRef.click()
   }
 }
 </script>

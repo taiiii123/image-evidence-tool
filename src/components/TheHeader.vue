@@ -190,6 +190,11 @@ const handleFileInput = (event) => {
   // リセット
   event.target.value = ''
 }
+
+// 親コンポーネントから参照できるようにfileInputRefを公開
+defineExpose({
+  fileInputRef
+})
 </script>
 
 <style scoped lang="scss">
